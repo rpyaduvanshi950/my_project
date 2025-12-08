@@ -1,0 +1,127 @@
+# Flutter/Dart
+
+.dart_tool/
+
+.packages
+
+.pub-cache/
+
+.pub/
+
+build/
+
+generated_plugin_registrant.dart
+
+# Flutter specific
+
+flutter_export_environment.sh
+
+flutter_export_environment.bat
+
+# Firebase
+
+# These files are safe to ignore if auto-generated or using FlutterFire CLI
+
+firebase_app_id_file.json
+
+firebase_options.dart
+
+# Google services files (do NOT ignore if you want them in CI/CD)
+
+# Uncomment ONLY if you plan to add these manually later:
+
+# android/app/google-services.json
+
+# ios/Runner/GoogleService-Info.plist
+
+# Android
+
+**/android/.gradle/
+
+**/android/captures/
+
+**/android/local.properties
+
+**/android/**/GeneratedPluginRegistrant.java
+
+**/android/key.properties
+
+# iOS
+
+**/ios/Flutter/App.framework
+
+**/ios/Flutter/Flutter.framework
+
+**/ios/Flutter/Flutter.podspec
+
+**/ios/Flutter/Generated.xcconfig
+
+**/ios/ServiceDefinitions.json
+
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+**/ios/Pods/
+
+**/ios/.symlinks/
+
+**/ios/Flutter/ephemeral/
+
+# macOS
+
+**/macos/Flutter/ephemeral/
+
+**/macos/Pods/
+
+**/macos/Runner/GeneratedPluginRegistrant.swift
+
+# Windows
+
+**/windows/flutter/ephemeral/
+
+**/windows/Runner/GeneratedPluginRegistrant.*
+
+# Linux
+
+**/linux/flutter/ephemeral/
+
+**/linux/Runner/GeneratedPluginRegistrant.*
+
+# Web
+
+**/web/firebase-messaging-sw.js
+
+**/web/.firebase/
+
+# VS Code
+
+.vscode/
+
+.history/
+
+# IntelliJ / Android Studio
+
+.idea/
+
+*.iws
+
+*.iml
+
+*.ipr
+
+# System files
+
+.DS_Store
+
+Thumbs.db
+
+# Logs
+
+*.log
+
+# Firebase Emulator data
+
+firebase-debug.log
+
+firestore-debug.log
+
+ui-debug.log
