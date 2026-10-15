@@ -99,20 +99,20 @@ class _AuthWrapperState extends State<AuthWrapper> {
           return const AuthScreen();
         }
 
-        // User is signed in, check if profile exists
-        return FutureBuilder<bool>(
-          future: _firestoreService.userExists(user.uid),
-          builder: (context, userExistsSnapshot) {
-            if (userExistsSnapshot.connectionState == ConnectionState.waiting) {
+        // User is signed in, use a single stream to check profile and get data
+        return StreamBuilder<UserModel?>(
+          stream: _firestoreService.getUserStream(user.uid),
+          builder: (context, userModelSnapshot) {
+            if (userModelSnapshot.connectionState == ConnectionState.waiting) {
               return const Scaffold(
                 body: Center(child: CircularProgressIndicator()),
               );
             }
 
-            final userExists = userExistsSnapshot.data ?? false;
+            final userModel = userModelSnapshot.data;
 
-            if (!userExists) {
-              // Show onboarding
+            // If user data doesn't exist, show onboarding
+            if (userModel == null) {
               return OnboardingScreen(
                 uid: user.uid,
                 displayName: user.displayName,
@@ -120,28 +120,8 @@ class _AuthWrapperState extends State<AuthWrapper> {
               );
             }
 
-            // User exists, show dashboard
-            return StreamBuilder<UserModel?>(
-              stream: _firestoreService.getUserStream(user.uid),
-              builder: (context, userModelSnapshot) {
-                if (userModelSnapshot.connectionState ==
-                    ConnectionState.waiting) {
-                  return const Scaffold(
-                    body: Center(child: CircularProgressIndicator()),
-                  );
-                }
-
-                final userModel = userModelSnapshot.data;
-
-                if (userModel == null) {
-                  return const Scaffold(
-                    body: Center(child: Text('Error loading user data')),
-                  );
-                }
-
-                return DashboardScreen(user: userModel);
-              },
-            );
+            // User data exists, show dashboard
+            return DashboardScreen(user: userModel);
           },
         );
       },

@@ -158,7 +158,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Welcome! Let\'s set up your profile',
+                'Welcome to Wish Manager! Let\'s set up your profile',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 32),
